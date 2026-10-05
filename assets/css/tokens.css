@@ -1,0 +1,69 @@
+/*
+  ImproFact design tokens.
+  Colours are sampled from ImproFact's LinkedIn post graphics (navy / grey / gold).
+  When the client supplies the official palette and type, replace the values in this
+  file only — every component reads from these variables.
+*/
+:root {
+  /* Brand */
+  --c-primary: #12285a;        /* ImproFact navy (logo "Impro") */
+  --c-primary-700: #0c1c40;
+  --c-primary-900: #081330;
+  --c-primary-100: #e7ecf6;
+  --c-secondary: #7d808a;      /* logo grey ("Fact") */
+  --c-secondary-300: #b9bcc4;
+  --c-accent: #d9a441;         /* gold rule under headlines */
+  --c-accent-600: #b9862a;
+
+  /* Neutrals */
+  --c-ink: #141a2b;
+  --c-ink-2: #474e60;          /* ≥ 4.5:1 on white */
+  --c-line: #dfe3ea;
+  --c-surface: #ffffff;
+  --c-surface-2: #f5f7fa;
+  --c-surface-3: #eef1f6;
+
+  /* States: brand colours only, no red / green.
+     "good" = navy, "attention" (errors, rejections) = deep gold. */
+  --c-good: var(--c-primary);
+  --c-good-100: var(--c-primary-100);
+  --c-bad: #8a5a00;            /* deep gold, 6:1 on white */
+  --c-bad-100: #f8efdc;
+  --c-warn: #8a5a00;
+  --c-focus: #2f6fed;
+
+  /* Type */
+  --font-display: "Source Serif 4", "Georgia", "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
+  --fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --fs-2xl: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  --fs-3xl: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);
+
+  /* Space & shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow-1: 0 1px 2px rgba(8, 19, 48, 0.06), 0 2px 8px rgba(8, 19, 48, 0.06);
+  --shadow-2: 0 8px 30px rgba(8, 19, 48, 0.12);
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-ui: 240ms;
+  --dur-reveal: 900ms;
+}
