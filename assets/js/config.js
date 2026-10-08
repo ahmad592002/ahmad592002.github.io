@@ -14,8 +14,8 @@ window.IMPROFACT_CONFIG = {
      no cookies, no cookie notice. Events are still pushed to window.dataLayer. */
   analyticsId: "",
 
-  /* TODO(ImproFact): confirm the public contact address. */
-  contactEmail: "info@improfact.com",
+  contactEmail: "mtaleb85@gmail.com",
+  contactPhone: "+961 79 306 690",
 
   linkedinUrl: "https://www.linkedin.com/company/improfact/",
 

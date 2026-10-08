@@ -79,7 +79,8 @@ Any static server, for example: `npx serve .` and then open http://localhost:300
 - [ ] Sign-off on the calculator assumptions (30% meetings cut, 2 layers, 30 min per approver, 1 day wait per layer).
 - [ ] Before/after figures for 3 processes. The current figures are labelled "Illustrative".
 - [ ] Workflow stage owners and SLAs. The current values are labelled illustrative.
-- [ ] Contact email (`info@improfact.com` is a placeholder) and the stated response time.
+- [x] Contact details: +961 79 306 690 · mtaleb85@gmail.com (in `assets/js/config.js`, footer and contact section).
+- [ ] Stated response time ("within 1 business day") to confirm.
 - [ ] Approved success metrics, client logos and testimonials. Their blocks (`#trust-metrics`, `#trust-proof`) stay hidden until then.
 - [ ] Legal review of `privacy.html`.
 - [ ] Optional: direct URLs for each LinkedIn post in the insights rail (they currently link to the posts page).

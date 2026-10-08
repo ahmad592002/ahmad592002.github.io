@@ -23,7 +23,10 @@ const contactSection = (() => { const s = indexHtml.indexOf('<section class="sec
 const IMG = { 1: 'post-commerce', 2: 'post-addition-subtraction', 3: 'post-social-media', 4: 'post-contract-review', 5: 'post-conflict',
   7: 'post-org-behavior', 11: 'post-sales-rewards', 12: 'post-remove-excess', 18: 'post-data', 19: 'post-two-minutes', 20: 'post-direction',
   21: 'post-value-proposition', 22: 'post-go-to-market', 23: 'post-pricing', 24: 'post-kpi-dashboard', 25: 'post-churn', 26: 'post-revenue-model',
-  27: 'post-30-60-90', 28: 'post-rebranding', 29: 'post-growth-levers', 30: 'post-digital-owner' };
+  27: 'post-30-60-90', 28: 'post-rebranding', 29: 'post-growth-levers', 30: 'post-digital-owner',
+  // branded covers made for the text-only posts
+  6: 'post-improve-performance', 8: 'post-money-or-value', 9: 'post-spot-the-mistake', 10: 'post-clarity-problem', 13: 'post-workplace-gossip',
+  14: 'post-authority', 15: 'post-loyalty-belonging', 16: 'post-budget-vs-business-plan', 17: 'post-open-workspaces' };
 function jpegSize(file) { // width/height from the JPEG SOF marker (avoids layout shift)
   const b = fs.readFileSync(path.join(ROOT, file)); let i = 2;
   while (i < b.length) { const m = b[i + 1], len = b.readUInt16BE(i + 2); if (m >= 0xC0 && m <= 0xC3) return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) }; i += 2 + len; }
@@ -38,6 +41,8 @@ function img(name, root, alt, { sizes = '(min-width: 1024px) 400px, 100vw', lazy
 const SVC_ICON = ['i-sitemap', 'i-gear', 'i-growth', 'i-team', 'i-shield'];
 const services = site.services.map((s, i) => ({ ...s, icon: SVC_ICON[i], n: i + 1 }));
 const svcUrl = (s, root) => `${root}services/${s.slug}.html`;
+// LinkedIn: link to each original post
+const liUrl = a => `https://www.linkedin.com/feed/update/${a.linkedin}/`;
 const artUrl = (a, root) => `${root}insights/${a.slug}.html`;
 const byN = n => articles.find(a => a.n === n);
 
@@ -48,11 +53,10 @@ function header(root, active, home = false) {
   return `<!-- site:header -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="brand" href="${root}index.html" aria-label="ImproFact home">
+      <a class="brand" href="${root}index.html" aria-label="ImproFact: Where Improvement meets Excellence (home)">
         <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
         <span class="brand-text">
           <svg class="brand-word" aria-hidden="true" focusable="false"><use href="#logo-word"/></svg>
-          <span class="brand-line">Where Improvement meets Excellence</span>
         </span>
       </a>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
@@ -72,11 +76,10 @@ function footer(root) {
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a class="brand brand-light" href="${root}index.html" aria-label="ImproFact home">
+        <a class="brand brand-light" href="${root}index.html" aria-label="ImproFact: Where Improvement meets Excellence (home)">
           <svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
           <span class="brand-text">
             <svg class="brand-word" aria-hidden="true" focusable="false"><use href="#logo-word"/></svg>
-            <span class="brand-line">Where Improvement meets Excellence</span>
           </span>
         </a>
         <p class="footer-about">We help organizations build better systems, stronger processes and high-performing teams.</p>
@@ -104,7 +107,8 @@ ${services.map(s => `          <li><a href="${svcUrl(s, root)}">${esc(s.name)}</
       <div>
         <h2 class="footer-h">Get in touch</h2>
         <ul class="footer-links">
-          <li><a href="mailto:info@improfact.com" data-config-mail="contactEmail" data-track="footer_email">${icon('i-mail')}<span data-config="contactEmail">info@improfact.com</span></a></li>
+          <li><a href="tel:+96179306690" data-track="footer_phone">${icon('i-phone')}<span>+961 79 306 690</span></a></li>
+          <li><a href="mailto:mtaleb85@gmail.com" data-config-mail="contactEmail" data-track="footer_email">${icon('i-mail')}<span data-config="contactEmail">mtaleb85@gmail.com</span></a></li>
           <li><a href="https://www.linkedin.com/company/improfact/" target="_blank" rel="noopener" data-config-href="linkedinUrl" data-track="footer_linkedin">${icon('i-linkedin')}LinkedIn</a></li>
         </ul>
         <a class="btn btn-accent btn-sm" href="${root}contact.html?request=audit">Book an audit</a>
@@ -469,7 +473,7 @@ pages.push(['insights.html', layout({
         ${crumbs(root, [[null, 'Insights']])}
         <p class="eyebrow">Insights</p>
         <h1 class="page-title">Ideas that improve how business works</h1>
-        <p class="lead">${articles.length} practical articles from ImproFact on operations, governance, strategy and people, in English and Arabic.</p>
+        <p class="lead">${articles.length} practical articles from ImproFact on operations, governance, strategy and people.</p>
       </div>
     </section>
 
@@ -506,7 +510,7 @@ articles.forEach((a, i) => {
       <div class="container"${ar ? ' dir="rtl"' : ''}>
         ${crumbs(root, [['insights.html', 'Insights'], [null, a.title]])}
         <span class="tag">${esc(a.category)}</span>
-        <h1 class="page-title" style="margin-top:var(--space-4)">${esc(a.title)}</h1>
+        <h1 class="page-title article-title" style="margin-top:var(--space-4)">${esc(a.title)}</h1>
         <p class="lead">${esc(a.summary)}</p>
       </div>
     </section>
@@ -518,7 +522,14 @@ articles.forEach((a, i) => {
           <div class="prose"${ar ? ' dir="rtl" lang="ar"' : ''}${IMG[a.n] ? ' style="margin-top:var(--space-6)"' : ''}>
             ${renderBlocks(a.blocks)}
           </div>
-          <p class="article-meta">Originally shared by ImproFact on <a href="https://www.linkedin.com/company/improfact/posts/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+          ${a.original ? `<details class="original" lang="${a.original.lang}">
+            <summary>Read the original in Arabic</summary>
+            <div class="prose" dir="rtl">
+            <h2>${esc(a.original.title)}</h2>
+            ${renderBlocks(a.original.blocks)}
+            </div>
+          </details>` : ''}
+          <p class="article-meta">${a.original ? 'Translated from Arabic. ' : ''}Originally shared by ImproFact on <a href="${a.linkedin ? liUrl(a) : 'https://www.linkedin.com/company/improfact/posts/'}" target="_blank" rel="noopener">LinkedIn</a>.</p>
           <nav class="article-nav" aria-label="More articles">
             ${prev ? `<a class="text-link" href="${artUrl(prev, root)}">← ${esc(prev.title)}</a>` : '<span></span>'}
             ${next ? `<a class="text-link" href="${artUrl(next, root)}">${esc(next.title)} →</a>` : ''}
