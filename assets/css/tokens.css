@@ -6,10 +6,11 @@
 */
 :root {
   /* Brand */
-  --c-primary: #12285a;        /* ImproFact navy (logo "Impro") */
-  --c-primary-700: #0c1c40;
-  --c-primary-900: #081330;
-  --c-primary-100: #e7ecf6;
+  --c-primary: #062547;        /* official logo navy (ImproFact 2.svg) */
+  --c-primary-700: #041b36;
+  --c-primary-900: #031327;
+  --c-primary-100: #e6ebf2;
+  --c-logo-grey: #a7abaa;      /* official logo grey: decorative use only (2.2:1 on white) */
   --c-secondary: #7d808a;      /* logo grey ("Fact") */
   --c-secondary-300: #b9bcc4;
   --c-accent: #d9a441;         /* gold rule under headlines */

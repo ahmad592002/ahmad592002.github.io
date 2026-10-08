@@ -58,6 +58,41 @@
   var onScrollHeader = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
   window.addEventListener('scroll', onScrollHeader, { passive: true }); onScrollHeader();
 
+  /* ---------- Mobile menu ---------- */
+  (function mobileNav() {
+    var btn = $('.nav-toggle'), nav = $('#site-nav'); if (!btn || !nav) return;
+    function set(open) {
+      header.classList.toggle('nav-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      $('use', btn).setAttribute('href', open ? '#i-x' : '#i-menu');
+    }
+    btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && header.classList.contains('nav-open')) { set(false); btn.focus(); } });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', function () { set(false); });
+  })();
+
+  /* ---------- Insights: topic filter ---------- */
+  (function insightFilter() {
+    var bar = $('.filters'); if (!bar) return;
+    var buttons = $$('button', bar), cards = $$('[data-category]');
+    bar.hidden = false;
+    bar.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var cat = b.getAttribute('data-filter');
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cards.forEach(function (c) { c.hidden = cat !== 'all' && c.getAttribute('data-category') !== cat; });
+      var shown = cards.filter(function (c) { return !c.hidden; }).length;
+      var live = $('#filter-status'); if (live) live.textContent = shown + ' article' + (shown === 1 ? '' : 's') + ' shown';
+      track('component_interaction', { component: 'insights', action: 'filter', value: cat });
+    });
+    // insights.html#topic-strategy-and-growth opens with that topic selected
+    var slug = function (s) { return 'topic-' + s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
+    var pre = buttons.filter(function (b) { return slug(b.getAttribute('data-filter')) === location.hash.slice(1); })[0];
+    if (pre) { pre.click(); bar.scrollIntoView({ block: 'start' }); }
+  })();
+
   /* ---------- Reveal on scroll (once) ---------- */
   function onceInView(el, cb, threshold) {
     if (!('IntersectionObserver' in window)) { cb(el); return; }
@@ -66,6 +101,13 @@
     }, { threshold: threshold || 0.2 });
     io.observe(el);
   }
+
+  /* ---------- What we do: services rise in sequence ---------- */
+  (function services() {
+    var grid = $('.svc-grid'); if (!grid) return;
+    grid.classList.add('reveal');
+    onceInView(grid, function () { grid.classList.add('in-view'); }, 0.2);
+  })();
 
   /* ---------- 1. Storefront vs operations diagram ---------- */
   (function storefront() {
@@ -501,8 +543,18 @@
 
   /* ---------- CTAs: set request type, bottleneck, calculator result ---------- */
   var reqInput = $('#f-request'), calcInput = $('#f-calc'), bottleneck = $('#f-bottleneck'), carry = $('#calc-carry');
+  // Links from other pages: contact.html?request=consultation&bottleneck=process
+  (function prefillFromUrl() {
+    if (!reqInput) return;
+    try {
+      var q = new URLSearchParams(location.search);
+      var r = q.get('request'), b = q.get('bottleneck');
+      if (r === 'audit' || r === 'consultation') reqInput.value = r;
+      if (b && bottleneck.querySelector('option[value="' + b.replace(/[^a-z]/g, '') + '"]')) bottleneck.value = b;
+    } catch (e) {}
+  })();
   document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[data-request]'); if (!a) return;
+    var a = e.target.closest('a[data-request]'); if (!a || !reqInput || a.getAttribute('href').charAt(0) !== '#') return;
     reqInput.value = a.getAttribute('data-request');
     var b = a.getAttribute('data-bottleneck');
     if (b) { bottleneck.value = b; bottleneck.dispatchEvent(new Event('change')); }

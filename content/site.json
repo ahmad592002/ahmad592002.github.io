@@ -1,0 +1,407 @@
+{
+  "services": [
+    {
+      "slug": "sop-development",
+      "name": "SOP Development",
+      "summary": "Standard Operating Procedures that bring consistency and clarity.",
+      "intro": "Clear procedures turn the way you work from personal habit into an organizational system. We develop SOPs, authority matrices and documentation standards that define who owns what, who decides and what must be escalated, so knowledge stays in the organization even when people leave. Not every problem needs another SOP, so we simplify and clarify before we add.",
+      "problems": [
+        "Decisions depend on who you know, not the system",
+        "Nobody knows who has the authority to approve",
+        "Knowledge lives on employees' laptops and leaves with them",
+        "The same task is done differently by every team",
+        "Too many approval layers slow every decision",
+        "Responsibilities overlap and accountability is missing"
+      ],
+      "deliverables": [
+        "Standard Operating Procedures (SOPs)",
+        "Approval matrices and authority levels",
+        "Delegation of authority framework",
+        "Roles and responsibilities definitions",
+        "Documentation, naming and archiving standards",
+        "Escalation and communication channels",
+        "SOP and policy simplification review",
+        "Clear operating policies"
+      ],
+      "outcomes": [
+        "Consistency across teams",
+        "Faster, clearer decisions",
+        "Knowledge that stays",
+        "Authority matched to accountability"
+      ],
+      "examples": [
+        "A procurement manager placed a direct supply order without the procurement committee, and when a quality problem appeared nobody took responsibility. Where authority is granted through a written delegation system, the result is flow, clarity and mutual trust.",
+        "A client was asked for technical support eight years after project completion, but the project team had left with no handover, archive or central documentation. Governance, documentation standards and centralized systems keep that knowledge inside the organization."
+      ],
+      "related_posts": [2, 3, 4, 5, 14, 18, 30]
+    },
+    {
+      "slug": "workflow-design",
+      "name": "Workflow Design",
+      "summary": "Efficient workflows that simplify operations and reduce errors.",
+      "intro": "Behind every simple customer experience there is a business process, and that process should be designed to be complex but controlled. We map how work actually flows, question every step, and redesign workflows that give teams speed while giving management visibility and control. Technology automates a workflow, but it does not redesign it, so we design first and digitize second.",
+      "problems": [
+        "A simple request waits days for email approvals",
+        "Every case follows the same heavy review process",
+        "Information is scattered and staff waste time searching",
+        "Handovers between departments cause delays and errors",
+        "Quotations take days to prepare",
+        "New systems were added on top of broken processes"
+      ],
+      "deliverables": [
+        "Current-state process maps",
+        "Redesigned future-state workflows",
+        "Segmented review and approval paths",
+        "Workflow simplification and step reduction",
+        "Content and operational workflow calendars",
+        "Automation readiness assessment",
+        "Cross-functional workflow design workshops",
+        "Workflow performance KPIs"
+      ],
+      "outcomes": [
+        "Fewer steps, fewer errors",
+        "Faster turnaround times",
+        "Speed with control",
+        "Ready for digitization"
+      ],
+      "examples": [
+        "A company digitizing its procurement process questioned each step with a cross-functional team, redesigned the workflow and reduced approvals from nine to five, rather than simply digitizing waste.",
+        "Without a defined workflow, a LinkedIn post can loop through Draft, Email, Waiting, Reminder and Revision and take three days. A segmented flow from content brief to authorized approval gives speed, consistency, control and accountability."
+      ],
+      "related_posts": [1, 2, 3, 12, 27, 30]
+    },
+    {
+      "slug": "business-process-improvement",
+      "name": "Business Process Improvement",
+      "summary": "Improve performance, eliminate waste and create more value.",
+      "intro": "Improvement should not start with \"What should we buy?\" but with \"How should we work?\". We identify hidden waste, analyze processes and find the root causes behind repeated issues, then remove, simplify, standardize and automate. The goal is not to cut resources blindly but to free them for higher-value work.",
+      "problems": [
+        "Repeated issues keep coming back",
+        "The first answer to every problem is hiring",
+        "Reports are produced that nobody uses",
+        "Departments duplicate each other's work",
+        "Skilled people spend time on low-value tasks",
+        "Targets are set without knowing how to reach them"
+      ],
+      "deliverables": [
+        "Process mapping and waste identification",
+        "Root-cause analysis",
+        "Role and responsibility analysis",
+        "Meeting and reporting optimization",
+        "Approval and authority review",
+        "Resource utilization analysis",
+        "Growth lever assessment",
+        "Prioritized improvement roadmap"
+      ],
+      "outcomes": [
+        "Less waste, more value",
+        "More capacity, same team",
+        "Root causes fixed",
+        "Sustainable performance gains"
+      ],
+      "examples": [
+        "Instead of hiring three more customer service staff, a company redesigned the workflow, clarified responsibilities, centralized information, removed unnecessary approvals and automated repetitive tasks, so the existing team could handle more with less effort.",
+        "A building materials company aiming for 20% more revenue analyzed its growth levers instead of pushing salespeople harder, including simplifying quotations from three days to one and improving inventory planning, so revenue could grow without increasing the sales team."
+      ],
+      "related_posts": [2, 6, 12, 24, 25, 29, 30]
+    },
+    {
+      "slug": "training-development",
+      "name": "Training & Development",
+      "summary": "Practical training that builds skills and drives real results.",
+      "intro": "Knowledge creates value only when it is shared and applied. We run practical training programmes and leadership workshops built on real examples, from conflict resolution and emotional intelligence to business planning, governance and value-based selling. We help leaders and teams build the mindset, tools and discipline for sustainable performance.",
+      "problems": [
+        "Top performers promoted into management without leadership skills",
+        "New managers spend months before creating value",
+        "Conflicts turn personal and drain the team",
+        "Salespeople discount too quickly to close deals",
+        "Managers treat business planning as a finance task",
+        "Gossip and office politics replace open communication"
+      ],
+      "deliverables": [
+        "Leadership development programmes",
+        "Governance and authority workshops for leaders",
+        "Conflict-resolution and communication training",
+        "Emotional intelligence and dialogue skills workshops",
+        "Business planning workshops",
+        "Value-based sales training",
+        "Tailored 30-60-90 Day Plans",
+        "Coaching based on real performance gaps"
+      ],
+      "outcomes": [
+        "Leaders who lead systems",
+        "Skills applied on the job",
+        "Faster impact in new roles",
+        "Stronger sense of belonging"
+      ],
+      "examples": [
+        "A new Sales Manager followed a 30-60-90 Day Plan instead of pushing sales from day one: he learned the business, identified slow quotations and weak follow-up, redesigned the process and coached the team, and quotation time dropped by 50%.",
+        "A company promoted its top performers to managerial roles, and within a year performance dropped, conflicts increased and morale fell, because communication skills, emotional intelligence and the ability to develop others had been ignored."
+      ],
+      "related_posts": [5, 9, 13, 14, 15, 16, 19, 23, 27]
+    },
+    {
+      "slug": "quality-excellence",
+      "name": "Quality & Excellence",
+      "summary": "Quality systems that ensure reliability and customer satisfaction.",
+      "intro": "What gets measured gets improved, but only if you measure what matters. We design KPI frameworks and dashboards linked to strategy, and apply Lean, DMAIC, Business Excellence and data-driven methods to improve quality, customer experience and retention. Excellence is not a one-time achievement but a journey built through the right people, processes and systems.",
+      "problems": [
+        "Lots of data, but no real insight",
+        "Dashboards exist that nobody uses",
+        "Only financial results are tracked, not their drivers",
+        "Service quality is inconsistent",
+        "Customers leave and nobody knows why",
+        "Teams guess at causes instead of measuring them"
+      ],
+      "deliverables": [
+        "KPI framework aligned with strategy",
+        "KPI dashboard blueprint",
+        "Reporting structures and review cycles",
+        "Customer journey and churn analysis",
+        "Customer success KPIs and early warnings",
+        "Lean and DMAIC improvement projects",
+        "Quality and standardization systems"
+      ],
+      "outcomes": [
+        "Decisions based on evidence",
+        "Reliable, consistent quality",
+        "Higher customer retention",
+        "Continuous improvement culture"
+      ],
+      "examples": [
+        "When sales were falling, a KPI dashboard showed that quotation response time had grown from 1 day to 5 days and conversion had dropped from 40% to 25%, so the company could fix the actual causes instead of asking salespeople to sell more.",
+        "A software company losing customers after six months found they had not been properly trained and support was slow. A churn reduction plan with onboarding, regular business reviews, usage monitoring and customer success KPIs increased engagement and renewals."
+      ],
+      "related_posts": [6, 23, 24, 25, 30]
+    }
+  ],
+  "expertise": [
+    {
+      "slug": "strategy-growth",
+      "name": "Strategy & Growth",
+      "description": "We help organizations make decisions based on evidence, not assumptions, from business planning and business models to growth levers and pivots. Growth does not happen by chance; successful companies design systems that create it.",
+      "topics": ["Business plan vs budget plan", "Growth levers", "Revenue model canvas", "Pivot decisions", "Rebranding and strategic positioning", "Value-driven mindset"],
+      "related_posts": [8, 16, 20, 26, 28, 29]
+    },
+    {
+      "slug": "commercial-excellence",
+      "name": "Commercial Excellence",
+      "description": "Customers don't buy what you do; they buy the value you create for them. We strengthen value propositions, go-to-market approaches, pricing and customer retention so sales teams compete on value, not price.",
+      "topics": ["Value proposition", "Go-to-market strategy", "Pricing strategy", "Customer churn and retention", "Sales process improvement"],
+      "related_posts": [21, 22, 23, 25, 29]
+    },
+    {
+      "slug": "governance-compliance",
+      "name": "Governance & Compliance",
+      "description": "Governance should create clarity, not stop momentum. We design authority matrices, delegation systems and review frameworks that give teams the authority to move fast while keeping the controls that protect the business.",
+      "topics": ["Bid and contract governance", "Authority and delegation matrices", "Content governance and approvals", "Legal/compliance review points", "Confidentiality controls"],
+      "related_posts": [3, 4, 14]
+    },
+    {
+      "slug": "people-organizational-behavior",
+      "name": "People & Organizational Behavior",
+      "description": "Your people are not the problem; the system might be. We treat organizational behavior as part of the wider business system, strengthening culture, communication, trust and belonging.",
+      "topics": ["Organizational behavior", "Conflict resolution", "Workplace gossip and communication", "Loyalty vs belonging", "Workspace design and engagement"],
+      "related_posts": [5, 7, 8, 13, 15, 17]
+    },
+    {
+      "slug": "leadership-organization-design",
+      "name": "Leadership & Organization Design",
+      "description": "An organizational structure is not a chart; it is a system of accountability. We build structures, roles and reward systems based on strategic goals, the business model and capabilities, and help leaders deliver from day one.",
+      "topics": ["Organizational structure and accountability", "Promotion and leadership readiness", "Reward systems linked to KPIs and OKRs", "30-60-90 Day Plans"],
+      "related_posts": [9, 10, 11, 27]
+    },
+    {
+      "slug": "digital-transformation-data",
+      "name": "Digital Transformation & Data",
+      "description": "Digital transformation is a business initiative enabled by technology. We establish governance, SOPs and workflows first, then help organizations manage data as a business asset and digitize the right processes.",
+      "topics": ["Transformation ownership and Project Champions", "Cross-functional teams", "Data governance and management", "Data maturity assessment", "System selection roadmaps"],
+      "related_posts": [18, 24, 30]
+    },
+    {
+      "slug": "digital-commerce-operations",
+      "name": "Digital Commerce Operations",
+      "description": "Successful online commerce is not just about building a website or an app; the real business happens behind the screen. We help design and improve the operation behind digital commerce.",
+      "topics": ["Online commerce business models", "Supply chain and fulfilment", "Order-to-delivery workflows", "Returns and customer experience", "Commerce KPIs"],
+      "related_posts": [1]
+    }
+  ],
+  "how_we_work": {
+    "steps": [
+      {
+        "name": "Understand",
+        "title": "Learn the business first",
+        "description": "We start by understanding your strategy, customers, culture, KPIs and challenges. We meet stakeholders, visit operations and listen carefully before drawing conclusions.",
+        "activities": [
+          "Stakeholder interviews and listening sessions",
+          "Operations and site visits",
+          "Review of reports, data and KPIs",
+          "Clarify objectives and success criteria"
+        ]
+      },
+      {
+        "name": "Diagnose",
+        "title": "Find waste and root causes",
+        "description": "We map how work really happens and look beyond the visible symptoms. We ask what organizational conditions are producing the results you see.",
+        "activities": [
+          "Process mapping and waste identification",
+          "Root-cause analysis using the 5 Whys",
+          "Role, authority and data maturity review",
+          "Identify and prioritize improvement opportunities"
+        ]
+      },
+      {
+        "name": "Design",
+        "title": "Simplify, then standardize",
+        "description": "Together with a cross-functional team, we redesign workflows, remove unnecessary steps and define clear roles and authority. Then we capture the new way of working in practical SOPs and governance.",
+        "activities": [
+          "Future-state workflow design workshops",
+          "SOPs, policies and approval matrices",
+          "Roles, responsibilities and decision rights",
+          "KPI framework linked to strategy"
+        ]
+      },
+      {
+        "name": "Implement",
+        "title": "Execute with your people",
+        "description": "We support implementation with a Project Champion who removes roadblocks and keeps momentum. Training and workshops build the skills your teams need to own the change.",
+        "activities": [
+          "Quick wins and execution roadmap",
+          "Practical training and leadership workshops",
+          "Change management and communication",
+          "Automation and digitization of redesigned processes"
+        ]
+      },
+      {
+        "name": "Measure",
+        "title": "Track what really matters",
+        "description": "What gets measured gets improved, so we put action-oriented KPIs and dashboards in place. Regular reviews turn information into decisions and further improvement.",
+        "activities": [
+          "KPI dashboards and reporting structures",
+          "Monitor outcomes, not just activities",
+          "Communicate progress to stakeholders",
+          "Regular performance reviews"
+        ]
+      },
+      {
+        "name": "Sustain",
+        "title": "Make improvement a habit",
+        "description": "Resolution does not end with a meeting; we follow up to ensure results are sustained. We help embed governance and a culture of continuous improvement, so you can then scale on a stronger foundation.",
+        "activities": [
+          "Follow-up and sustainment checks",
+          "Governance embedded in daily routines",
+          "Continuous improvement culture and recognition",
+          "Scale what works"
+        ]
+      }
+    ],
+    "principles": [
+      {
+        "title": "Remove before you add",
+        "description": "Before adding people, systems, meetings or approvals, ask what should be removed. Sometimes it is about stopping what should never have been done in the first place.",
+        "source_post": 2
+      },
+      {
+        "title": "Fix the system, not the people",
+        "description": "Instead of concluding \"We have difficult employees\", ask what organizational conditions are producing the behavior. When the signals change, behavior can change.",
+        "source_post": 7
+      },
+      {
+        "title": "Don't digitize waste",
+        "description": "Don't digitize inefficiency, don't hire around waste, don't scale what is broken. First build the right processes, then digitize them.",
+        "source_post": 12
+      },
+      {
+        "title": "What gets measured gets improved",
+        "description": "A good dashboard does not show everything; it shows what matters. Data tells you what happened, KPIs tell you what action to take.",
+        "source_post": 24
+      },
+      {
+        "title": "Authority should match the risk",
+        "description": "Governance should create clarity, not stop momentum. Give teams the authority to move fast on normal business and involve senior leadership where the risk requires it.",
+        "source_post": 4
+      },
+      {
+        "title": "Create value, and results follow",
+        "description": "We are here to create value; money comes as a result. When value is the priority, trust is built, teams develop and results last.",
+        "source_post": 8
+      }
+    ],
+    "engagement_models": [
+      {
+        "name": "Operational assessment",
+        "description": "A structured review of your operations, processes, governance and data maturity to identify hidden waste, root causes and the growth levers that matter most.",
+        "best_for": "Organizations unsure where improvement should start"
+      },
+      {
+        "name": "Improvement project",
+        "description": "A focused project to redesign a specific process, workflow or governance framework with a Project Champion and cross-functional team, from current state to implemented solution.",
+        "best_for": "A known process problem or digitization initiative"
+      },
+      {
+        "name": "30-60-90 Day roadmap",
+        "description": "A tailored plan that turns a new or promoted leader's first three months into planned execution: learn, analyze and plan, then execute and deliver measurable results.",
+        "best_for": "New managers and leaders stepping into roles"
+      },
+      {
+        "name": "Training & workshops",
+        "description": "Practical training programmes and facilitated workshops, from leadership and conflict resolution to business planning and value-based selling, built on real examples you can apply.",
+        "best_for": "Building team and leadership capability"
+      }
+    ]
+  },
+  "about": {
+    "who_we_are": "ImproFact is a business-improvement consultancy that helps organizations and individuals improve their performance from the inside out. We work with organizations that want to move from reactive problem-solving to structured improvement by reducing waste, increasing efficiency, improving quality and creating sustainable value. Our work covers SOPs and governance, workflow design, process improvement, training and development, and quality and excellence, alongside strategy, sales improvement, digital transformation and leadership development. We share what we know openly, in English and Arabic, because we believe knowledge creates value only when it is shared.",
+    "mission": "To help organizations and individuals improve from the inside out through better processes, stronger teams and sustainable growth.",
+    "approach": "We believe improvement should not start with \"What should we buy?\" but with \"How should we work?\". We understand before we act, look for root causes rather than blame, remove waste before adding resources, and build processes before digitizing them. Then we measure what matters and help make improvement a habit.",
+    "values": [
+      {
+        "name": "Value creation",
+        "description": "We focus on the value we create, not just the transaction, because when value is the priority, trust is built and results follow."
+      },
+      {
+        "name": "Continuous improvement",
+        "description": "Excellence is not a one-time achievement; it is a journey built through the right people, processes and systems."
+      },
+      {
+        "name": "Clarity and accountability",
+        "description": "Every role should have meaning and every authority comes with responsibility. Authority is a trust, not a privilege."
+      },
+      {
+        "name": "Collaboration",
+        "description": "The best processes are built by collaboration, not by one department, so we design the future way of working with the people who do the work."
+      },
+      {
+        "name": "Shared knowledge",
+        "description": "Knowledge creates value only when it is shared. We want better leaders, stronger organizations and ethical workplaces."
+      }
+    ],
+    "languages": ["English", "Arabic"]
+  },
+  "faq": [
+    {
+      "question": "Where should we start if we know performance could be better but can't pinpoint why?",
+      "answer": "We start by understanding your business and diagnosing where hidden waste, unclear processes or repeated issues are limiting performance. Rather than guessing, we map processes, look for root causes and use KPIs to make the real problems visible, then prioritize the improvements that create the most value."
+    },
+    {
+      "question": "Does process improvement mean cutting staff?",
+      "answer": "No. Improvement is not about reducing resources blindly; it is about eliminating waste and freeing resources for higher-value work. Often the same team can handle more with less effort once duplicated work, unnecessary approvals and scattered information are removed."
+    },
+    {
+      "question": "Should we buy a new system or start digital transformation first?",
+      "answer": "Adding a new system won't solve a broken process. We recommend establishing governance, SOPs and workflows first, then digitizing them, because technology automates processes but doesn't redesign them."
+    },
+    {
+      "question": "Who in our organization needs to be involved?",
+      "answer": "Business processes affect everyone, so we work with a Project Champion who removes roadblocks and makes timely decisions, supported by a cross-functional team from the functions involved. An internal leader understands the culture while an external partner brings fresh perspective and proven methods; the best approach often combines both."
+    },
+    {
+      "question": "Do you only advise, or do you also train our people?",
+      "answer": "Both. Alongside designing processes, SOPs and governance, we run practical training programmes and leadership workshops, covering topics such as conflict resolution, emotional intelligence, governance, business planning and value-based selling, so your teams can sustain the improvements themselves."
+    },
+    {
+      "question": "Can you work with us in Arabic as well as English?",
+      "answer": "Yes. ImproFact shares its thinking and programmes in both English and Arabic, and our approach to culture, leadership and governance is designed to be practical in either language."
+    }
+  ]
+}
