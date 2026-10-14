@@ -3,8 +3,8 @@
   Changing CRM (HubSpot, Odoo, email relay…) = change webhookUrl only.
 */
 window.IMPROFACT_CONFIG = {
-  /* POST target for the lead form (JSON). Leave empty for local demo mode:
-     the payload is logged to the console and a success is simulated. */
+  /* Optional: also POST a copy of every form request (JSON) to a CRM / webhook.
+     The form itself sends through WhatsApp or the visitor's email app. */
   webhookUrl: "",
 
   /* Request timeout before the form shows retry + email fallback (ms). */
@@ -16,6 +16,8 @@ window.IMPROFACT_CONFIG = {
 
   contactEmail: "mtaleb85@gmail.com",
   contactPhone: "+961 79 306 690",
+  /* The form's "Send via WhatsApp" button writes to this number (international format, digits only). */
+  whatsappNumber: "96179306690",
 
   linkedinUrl: "https://www.linkedin.com/company/improfact/",
 

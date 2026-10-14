@@ -107,7 +107,7 @@ ${services.map(s => `          <li><a href="${svcUrl(s, root)}">${esc(s.name)}</
       <div>
         <h2 class="footer-h">Get in touch</h2>
         <ul class="footer-links">
-          <li><a href="tel:+96179306690" data-track="footer_phone">${icon('i-phone')}<span>+961 79 306 690</span></a></li>
+          <li><a href="https://wa.me/96179306690" target="_blank" rel="noopener" aria-label="Chat with ImproFact on WhatsApp: +961 79 306 690" data-track="footer_whatsapp">${icon('i-whatsapp')}<span>+961 79 306 690</span></a></li>
           <li><a href="mailto:mtaleb85@gmail.com" data-config-mail="contactEmail" data-track="footer_email">${icon('i-mail')}<span data-config="contactEmail">mtaleb85@gmail.com</span></a></li>
           <li><a href="https://www.linkedin.com/company/improfact/" target="_blank" rel="noopener" data-config-href="linkedinUrl" data-track="footer_linkedin">${icon('i-linkedin')}LinkedIn</a></li>
         </ul>

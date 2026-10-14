@@ -570,14 +570,14 @@
   (function leadForm() {
     var form = $('#lead-form'); if (!form) return;
     var loadedAt = Date.now();
-    var status = $('#form-status'), submit = $('#f-submit');
+    var status = $('#form-status');
     var f = {
       name: $('#f-name'), email: $('#f-email'), company: $('#f-company'), size: $('#f-size'),
       bottleneck: $('#f-bottleneck'), details: $('#f-details'), consent: $('#f-consent'), hp: $('#f-website')
     };
     var FREE = /@(gmail|googlemail|yahoo|ymail|outlook|hotmail|live|msn|icloud|me|aol|proton|protonmail|gmx|mail)\.[a-z.]+$/i;
     var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    var started = false, sending = false, sent = false;
+    var started = false;
 
     form.classList.add('reveal');
     onceInView(form, function () { form.classList.add('in-view'); }, 0.1);
@@ -648,60 +648,76 @@
       }, utm);
     }
 
-    function send(data) {
-      if (!CFG.webhookUrl) {
-        console.warn('[ImproFact] webhookUrl is empty in assets/js/config.js. Demo mode: payload logged, success simulated.', data);
-        return new Promise(function (res) { setTimeout(res, 700); });
-      }
-      var ctrl = 'AbortController' in window ? new AbortController() : null;
-      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, CFG.webhookTimeoutMs || 10000);
-      return fetch(CFG.webhookUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: ctrl ? ctrl.signal : undefined
-      }).then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error('HTTP ' + r.status); })
-        .catch(function (e) { clearTimeout(timer); throw e; });
-    }
+    // ---- Sending: the visitor picks WhatsApp or Email; we pre-write the message ----
+    var WA_NUMBER = String(CFG.whatsappNumber || '').replace(/\D/g, '');
+    var lastChannel = 'email';
+    $$('button[name="channel"]', form).forEach(function (b) {
+      b.addEventListener('click', function () { lastChannel = b.value; });
+    });
 
-    function success(silent, data) {
-      sent = true;
-      submit.classList.remove('is-loading'); submit.classList.add('is-success');
-      submit.disabled = true;
-      $$('input, select, textarea', form).forEach(function (el) { el.disabled = true; });
-      status.className = 'form-status is-good';
-      status.textContent = 'Thank you. We’ve received your request and will reply ' + (CFG.responseTime || 'within 1 business day') + '.';
-      if (!silent) track('generate_lead', { request_type: data.request_type, bottleneck: data.bottleneck });
+    function message(d) {
+      var lines = [
+        'Hello ImproFact,',
+        '',
+        d.request_type === 'consultation' ? 'I would like to request a consultation.' : 'I would like to schedule an operational audit.',
+        '',
+        'Name: ' + d.full_name,
+        'Email: ' + d.email,
+        'Company: ' + d.company,
+        'Company size: ' + d.company_size,
+        'Main bottleneck: ' + d.bottleneck_label
+      ];
+      if (d.details) lines.push('Details: ' + d.details);
+      if (d.calculator_result) lines.push('Calculator estimate: about ' + fmt(d.calculator_result.hours_saved_per_month) + ' hours a month and $' + fmt(d.calculator_result.cost_saved_per_year_usd) + ' a year');
+      lines.push('', 'Thank you.');
+      return lines.join('\n');
     }
-    function failure(err) {
-      sending = false;
-      submit.classList.remove('is-loading'); submit.disabled = false;
-      var email = CFG.contactEmail || '';
-      status.className = 'form-status is-bad';
+    function linkFor(channel, d) {
+      var text = message(d);
+      if (channel === 'whatsapp') return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+      var subject = (d.request_type === 'consultation' ? 'Consultation request' : 'Operational audit request') + ': ' + d.company;
+      return 'mailto:' + (CFG.contactEmail || '') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+    }
+    function open(channel, url) {
+      if (channel === 'whatsapp') {
+        var w = window.open(url, '_blank');
+        if (w) { try { w.opener = null; } catch (e) {} } else { location.href = url; }  // pop-up blocked: same tab
+      } else {
+        location.href = url;  // opens the visitor's email app
+      }
+    }
+    function done(channel, url) {
+      status.className = 'form-status is-good';
       status.innerHTML = '';
       var p = document.createElement('p');
-      p.textContent = (err && err.name === 'AbortError' ? 'The request timed out.' : 'We couldn’t send your request.') + ' Your details are still here. Try again, or email us directly.';
-      var retry = document.createElement('button');
-      retry.type = 'button'; retry.className = 'btn btn-primary btn-sm'; retry.textContent = 'Retry';
-      retry.addEventListener('click', function () { form.requestSubmit ? form.requestSubmit() : submit.click(); });
-      status.appendChild(p); status.appendChild(retry);
-      if (email) {
-        var d = payload();
-        var a = document.createElement('a');
-        a.className = 'btn btn-ghost btn-sm';
-        a.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Operational audit request: ' + d.company) +
-          '&body=' + encodeURIComponent('Name: ' + d.full_name + '\nCompany: ' + d.company + '\nSize: ' + d.company_size + '\nBottleneck: ' + d.bottleneck_label + '\n\n' + d.details);
-        a.textContent = 'Email ' + email;
-        status.appendChild(a);
+      p.textContent = channel === 'whatsapp'
+        ? 'WhatsApp is opening with your request written for you. Press Send in WhatsApp to deliver it to ImproFact.'
+        : 'Your email app is opening with your request written for you. Press Send to deliver it to ImproFact.';
+      var again = document.createElement('a');
+      again.className = 'btn btn-ghost btn-sm';
+      again.href = url;
+      if (channel === 'whatsapp') { again.target = '_blank'; again.rel = 'noopener'; }
+      again.textContent = channel === 'whatsapp' ? 'Didn’t open? Open WhatsApp' : 'Didn’t open? Open email';
+      status.appendChild(p); status.appendChild(again);
+      if (channel === 'email' && CFG.contactEmail) {
+        var note = document.createElement('p');
+        note.className = 'form-status-note';
+        note.textContent = 'No email app? Write to ' + CFG.contactEmail + ' or use WhatsApp instead.';
+        status.appendChild(note);
       }
-      track('form_error', { type: 'network', message: String(err && err.message || err) });
+    }
+    function postWebhook(data) { // optional: also send a copy to a CRM / webhook when configured
+      if (!CFG.webhookUrl) return;
+      try {
+        fetch(CFG.webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), keepalive: true }).catch(function () {});
+      } catch (e) {}
     }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (sending || sent) return;
-      // Spam: honeypot or implausibly fast submit → block silently
-      if (f.hp.value || Date.now() - loadedAt < (CFG.minFillTimeMs || 2500)) { success(true); return; }
+      var channel = (e.submitter && e.submitter.value) || lastChannel;
+      // Spam: honeypot or implausibly fast submit → ignore silently
+      if (f.hp.value || Date.now() - loadedAt < (CFG.minFillTimeMs || 2500)) return;
       var keys = Object.keys(rules), firstBad = null;
       keys.forEach(function (k) { f[k].dataset.touched = '1'; if (!check(k) && !firstBad) firstBad = f[k]; });
       if (firstBad) {
@@ -711,12 +727,13 @@
         track('form_error', { type: 'validation', field: firstBad.name });
         return;
       }
-      sending = true;
-      status.className = 'form-status'; status.textContent = 'Sending…';
-      submit.classList.add('is-loading'); submit.disabled = true;
-      var data = payload();
-      track('form_submit', { request_type: data.request_type, bottleneck: data.bottleneck });
-      send(data).then(function () { sending = false; success(false, data); }, failure);
+      var data = payload(); data.channel = channel;
+      var url = linkFor(channel, data);
+      open(channel, url);
+      done(channel, url);
+      postWebhook(data);
+      track('form_submit', { request_type: data.request_type, bottleneck: data.bottleneck, channel: channel });
+      track('generate_lead', { request_type: data.request_type, bottleneck: data.bottleneck, channel: channel });
     });
   })();
 

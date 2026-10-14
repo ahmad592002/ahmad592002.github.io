@@ -734,3 +734,21 @@ html:not(.js) .filters { display: none; }
 .original .prose h2:first-child { margin-top: 0; }
 
 .article-title { font-size: var(--fs-2xl); max-width: 52rem; }
+
+/* WhatsApp chat link beside the phone number */
+.phone-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px var(--space-3); }
+.wa-link { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0.3rem 0.8rem 0.3rem 0.6rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.35); color: #fff; font-size: var(--fs-xs); font-weight: 600; text-decoration: none; transition: background-color var(--dur-ui), border-color var(--dur-ui); }
+.wa-link:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+.wa-link .ic-wa { width: 18px; height: 18px; color: var(--c-accent); }
+.footer-links .wa-link { min-height: 36px; }
+
+/* Form: choose how to send */
+.send-choice { display: grid; gap: var(--space-3); }
+.send-label { font-weight: 600; font-size: var(--fs-sm); color: var(--c-ink); }
+.send-buttons { display: grid; gap: var(--space-3); }
+@media (min-width: 520px) { .send-buttons { grid-template-columns: 1fr 1fr; } }
+.btn-send { width: 100%; gap: 10px; white-space: nowrap; padding-inline: 1rem; font-size: var(--fs-sm); }
+.btn-send .ic { width: 22px; height: 22px; }
+.send-hint { font-size: var(--fs-xs); color: var(--c-ink-2); }
+.form-status p + .btn, .form-status .btn { margin-top: var(--space-3); }
+.form-status-note { margin-top: var(--space-3); font-size: var(--fs-xs); }

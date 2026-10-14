@@ -47,13 +47,18 @@ Any static server, for example: `npx serve .` and then open http://localhost:300
 
 | Key | Purpose |
 | --- | --- |
-| `webhookUrl` | JSON POST target. **Empty = demo mode**: the payload goes to the console and success is simulated. |
+| `whatsappNumber` | Number used by the form's "Send via WhatsApp" button (digits only). |
+| `webhookUrl` | Optional: also POST a JSON copy of each form request to a CRM or webhook. The form itself sends through WhatsApp or the visitor's email app. |
 | `webhookTimeoutMs` | 10 000 ms by default. After that, the retry and email fallback appear. |
 | `analyticsId` | GA4 ID. The cookie notice and gtag load only when this is set. Events always go to `window.dataLayer`. |
 | `contactEmail`, `responseTime` | Shown in the footer and in form messages. |
 | `calculator.*` | ROI reduction assumptions. These are shown on screen. |
 
-## Webhook payload
+## How the contact form sends
+
+The visitor chooses **Send via WhatsApp** (opens `wa.me/<whatsappNumber>`) or **Send via Email** (opens their email app addressed to `contactEmail`). Either way the request is already written and the visitor presses Send. Nothing is stored on the website.
+
+## Optional webhook payload
 
 ```json
 {
